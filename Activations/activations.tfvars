@@ -18,4 +18,13 @@ release_notes        = "Release Week/Name"
    config_name    = ""
    config_version =
 }
+
+variable "release_activations" {
+  type = map(list(object({
+    config_id             = string
+    config_name           = string
+    config_version        = number
+    associated_properties = optional(list(string))
+  })))
+}
 */
