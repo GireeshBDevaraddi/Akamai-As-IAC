@@ -10,7 +10,7 @@ release_activations = {
 
 release_notification = []
 release_network      = "PRODUCTION"
-release_notes        = "Release Week/Name"
+release_notes        = "Activation Notes"
 
 /*
 {
