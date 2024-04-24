@@ -3,7 +3,7 @@ variable "edgeworker_id" {
     type = string
 }
 
-variable "release_network" {
+variable "activation_network" {
   type = string
 }
 

@@ -6,9 +6,9 @@ module "property_activation" {
   for_each = {
     for key, value in var.release_activations["property_manager"] : key => value
   }
-  release_notes = var.release_notes
-  release_network = var.release_network
-  release_notification = var.release_notification
+  activation_notes = var.release_notes
+  activation_network  = var.release_network
+  activation_notification = var.release_notification
   property_id = each.value.config_id
   version = each.value.config_version
 }
@@ -19,9 +19,9 @@ module "app_security_activations" {
   for_each = {
     for key, value in var.release_activations["app_sec"] : key => value
   }
-  release_notification = var.release_notification
-  release_network = var.release_network
-  release_notes = var.release_notes
+  activation_notification =  var.release_notification
+  activation_network = var.release_network
+  activation_notes  =  var.release_notes
   config_id = each.value.config_id
   config_version = each.value.config_version
 }
@@ -32,9 +32,9 @@ module "clientList_activations" {
   for_each = {
     for key, value in var.release_activations["client_List"]: key => value
   }
-  release_network = var.release_network
-  release_notes = var.release_notes
-  release_notification = var.release_notification
+  activation_network = var.release_network
+  activation_notes = var.release_notes
+  activation_notification = var.release_notification
   config_id = each.value.config_id
   config_version = each.value.config_version
 }
@@ -44,9 +44,9 @@ module "networkList_activations" {
   for_each = {
     for key, value in var.release_activations["network_list"]: key => value
   }
-  release_network = var.release_network
-  release_notes = var.release_notes
-  release_notification = var.release_notification
+  activation_network = var.release_network
+  activation_notes = var.release_notes
+  activation_notification = var.release_notification
   config_id = each.value.config_id
   config_version = each.value.config_version
 }
@@ -58,7 +58,7 @@ module "lbm_activations" {
     for key, value in var.release_activations["lbm_list"]: key => value
    }
   config_id = each.value.config_id
-  release_network = var.release_network
+  activation_network = var.release_network
   config_version = each.value.config_version
 }
 
@@ -69,9 +69,9 @@ module "cloudlets_activations" {
   for_each = {
     for key, value in var.release_activations["cloudlets_list"]: key => value
   }
-  release_network = var.release_network
-  release_notes = var.release_notes
-  release_notification = var.release_notification
+  activation_network = var.release_network
+  activation_notes = var.release_notes
+  activation_notification = var.release_notification
   config_version = each.value.config_version
   config_id = each.value.config_id
   associated_properties = each.value.associated_properties
@@ -83,7 +83,7 @@ module "edgeworkers_activations" {
    for_each = {
     for key, value in var.release_activations["edgeworkers_list"]: key => value
   }
-  release_network = var.release_network
+  activation_network = var.release_network
   edgeworker_id = each.value.config_id
   version = each.value.config_version
 }

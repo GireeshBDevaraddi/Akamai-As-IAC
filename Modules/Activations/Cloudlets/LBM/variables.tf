@@ -1,5 +1,5 @@
 
-variable "release_network" {
+variable "activation_network" {
   type = string
 }
 

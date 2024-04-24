@@ -1,10 +1,10 @@
-variable "release_notification" {
+variable "activation_notification" {
   type = list(string)
 }
-variable "release_network" {
+variable "activation_network" {
   type = string
 }
-variable "release_notes" {
+variable "activation_notes" {
   type = string
 }
 variable "config_id" {
