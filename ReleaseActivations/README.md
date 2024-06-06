@@ -1,7 +1,7 @@
 # Akamai Activations 
 
 - Updated the [activations.tfvars](https://github.com/GireeshBDevaraddi/Akamai-As-IAC/blob/main/ReleaseActivations/activations.tfvars) file with below details
-  - Add the config or property id, name and version details as objects under `release_activations` List.
+  - Add the config or property id, name and version details as objects under `release_activations` List for respective akamai product section.
   - Add Recipient Emails to `release_notification` List
   - Add Respective Activation Notes to `release_notes`
   - Add Respective network ( PRODUCTION or STAGING ) to  `release_network`

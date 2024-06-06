@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -rf terraform.tfstate
+rm -rf terraform.tfstate terraformPlan
 
 terraform init
 terraform plan -var-file=activations.tfvars -out terraformPlan
