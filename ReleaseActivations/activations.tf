@@ -1,87 +1,89 @@
 # Loops over all the inputted properties and activates
 ## Property Manager activations.
-resource "akamai_property_activation" "pm_activations" {
+
+module "property_activation" {
+  source   = "../Modules/Activations/Property"
   for_each = {
     for key, value in var.release_activations["property_manager"] : key => value
   }
-  version                        = each.value.config_version
-  property_id                    = each.value.config_id
-  contact                        = var.release_notification
-  network                        = var.release_network
-  auto_acknowledge_rule_warnings = true
-  note                           = var.release_notes
-}
-
-## Application security configs activations.
-resource "akamai_appsec_activations" "app_sec_activations" {
-  for_each = {
-    for key, value in var.release_activations["app_sec"] : key => value
-  }
-  config_id           = each.value.config_id
-  version             = each.value.config_version
-  notification_emails = var.release_notification
-  network             = var.release_network
-  note                = var.release_notes
-}
-
-## Client List configs activations
-resource "akamai_clientlist_activation" "clientList_activations" {
-  for_each = {
-    for key, value in var.release_activations["client_List"] : key => value
-  }
-  list_id                 = each.value.config_id
-  network                 = var.release_network
-  version                 = each.value.config_version
-  notification_recipients = var.release_notification
-  comments                = var.release_notes
+  pm_activation_notes        = var.release_notes
+  pm_activation_network      = var.release_network
+  pm_activation_notification = var.release_notification
+  pm_property_id             = each.value.config_id
+  pm_config_version          = each.value.config_version
 }
 
 ## Network List configs activations
-resource "akamai_networklist_activations" "networkList_activations" {
+module "networkList_activations" {
+  source   = "../Modules/Activations/NetworkList"
   for_each = {
     for key, value in var.release_activations["network_list"] : key => value
   }
-  network_list_id     = each.value.config_id
-  network             = var.release_network
-  sync_point          = each.value.config_version
-  notes               = var.release_notes
-  notification_emails = var.release_notification
+  nl_activation_network      = var.release_network
+  nl_activation_notes        = var.release_notes
+  nl_activation_notification = var.release_notification
+  nl_config_id               = each.value.config_id
+  nl_config_version          = each.value.config_version
+}
+## Application security configs activations.
+module "app_security_activations" {
+  source   = "../Modules/Activations/ApplicationSecurity"
+  for_each = {
+    for key, value in var.release_activations["app_sec"] : key => value
+  }
+  appsec_activation_notification = var.release_notification
+  appsec_activation_network      = var.release_network
+  appsec_activation_notes        = var.release_notes
+  appsec_config_id               = each.value.config_id
+  appsec_config_version          = each.value.config_version
 }
 
+## Client List configs activations
+module "clientList_activations" {
+  source   = "../Modules/Activations/ClientList"
+  for_each = {
+    for key, value in var.release_activations["client_List"] : key => value
+  }
+  cl_activation_network      = var.release_network
+  cl_activation_notes        = var.release_notes
+  cl_activation_notification = var.release_notification
+  cl_config_id               = each.value.config_id
+  cl_config_version          = each.value.config_version
+}
 # Cloudlets
 ## Application load balancer activations (LBM)
-resource "akamai_cloudlets_application_load_balancer_activation" "lbm_activations" {
+module "lbm_activations" {
+  source   = "../Modules/Activations/LBM"
   for_each = {
     for key, value in var.release_activations["lbm_list"] : key => value
   }
-  origin_id = each.value.config_id
-  network   = var.release_network
-  version   = each.value.config_version
-  timeouts {
-    default = "1h"
-  }
+  lbm_config_id          = each.value.config_id
+  lbm_activation_network = var.release_network
+  lbm_config_version     = each.value.config_version
 }
 
 ## Cloudlets Policy Activations
-resource "akamai_cloudlets_policy_activation" "cloudlets_activations" {
+module "cloudlets_activations" {
+  source = "../Modules/Activations/Cloudlets"
+
   for_each = {
     for key, value in var.release_activations["cloudlets_list"] : key => value
   }
-  policy_id             = each.value.config_id
-  network               = var.release_network
-  version               = each.value.config_version
-  associated_properties = each.value.associated_properties
-  timeouts {
-    default = "1h"
-  }
+  cld_activation_network      = var.release_network
+  cld_activation_notes        = var.release_notes
+  cld_activation_notification = var.release_notification
+  cld_config_version          = each.value.config_version
+  cld_config_id               = each.value.config_id
+  cld_associated_properties   = each.value.associated_properties
 }
 
 ## Edge Workers Activations
-resource "akamai_edgeworkers_activation" "edgeworkers_activations" {
+module "edgeworkers_activations" {
+  source   = "../Modules/Activations/EdgeWorkers"
   for_each = {
     for key, value in var.release_activations["edgeworkers_list"] : key => value
   }
-  edgeworker_id = each.value.config_id
-  network       = var.release_network
-  version       = each.value.config_version
+  ew_activation_network   = var.release_network
+  ew_config_id = each.value.config_id
+  ew_config_version       = each.value.config_version
 }

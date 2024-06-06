@@ -1,15 +1,15 @@
-variable "activation_notification" {
+variable "nl_activation_notification" {
   type = list(string)
 }
-variable "activation_network" {
+variable "nl_activation_network" {
   type = string
 }
-variable "activation_notes" {
+variable "nl_activation_notes" {
   type = string
 }
-variable "config_id" {
+variable "nl_config_id" {
   type = string
 }
-variable "config_version" {
+variable "nl_config_version" {
   type = number
 }

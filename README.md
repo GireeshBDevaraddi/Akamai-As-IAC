@@ -1,4 +1,4 @@
-# Akamai-As-IAC
+# Akamai-As-Code
 - Manage Akamai Delivery and Security Configuration using Hashicorp Configuration Language (Terraform)
 
-1. [Complete Activations under single file](https://github.com/GireeshBDevaraddi/Akamai-As-IAC/blob/main/Activations/README.md). 
+1. [Release Activations OR Activate Any Akamai Configs](https://github.com/GireeshBDevaraddi/Akamai-As-IAC/blob/main/ReleaseActivations/README.md). 

@@ -17,3 +17,9 @@ variable "release_network" {
 variable "release_notes" {
   type = string
 }
+
+variable "config_section" {
+  type        = string
+  description = "Choose which API client to use"
+  default     = "default"
+}

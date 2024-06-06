@@ -1,9 +1,8 @@
 resource "akamai_property_activation" "ak_property_activation" {
-  property_id                    = var.property_id
-  contact                        = var.activation_notification
-  network                        = var.activation_network
+  property_id                    = var.pm_property_id
+  contact                        = var.pm_activation_notification
+  network                        = var.pm_activation_network
   auto_acknowledge_rule_warnings = true
-  note                           = var.activation_notes
-  version                        = var.version
-  
+  note                           = var.pm_activation_notes
+  version                        = var.pm_config_version
 }

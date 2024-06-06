@@ -1,18 +1,19 @@
-variable "activation_notification" {
+variable "cld_activation_notification" {
   type = list(string)
 }
-variable "activation_network" {
+variable "cld_activation_network" {
   type = string
 }
-variable "activation_notes" {
+variable "cld_activation_notes" {
   type = string
 }
-variable "config_id" {
+variable "cld_config_id" {
   type = string
 }
-variable "config_version" {
+variable "cld_config_version" {
   type = number
 }
-variable "associated_properties" {
-  type = optional(list(string))
+variable "cld_associated_properties" {
+  type = list(string)
+  default = []
 }

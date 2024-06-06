@@ -1,12 +1,12 @@
 
-variable "edgeworker_id" {
+variable "ew_config_id" {
     type = string
 }
 
-variable "activation_network" {
+variable "ew_activation_network" {
   type = string
 }
 
-variable "version" {
+variable "ew_config_version" {
     type = number
 }

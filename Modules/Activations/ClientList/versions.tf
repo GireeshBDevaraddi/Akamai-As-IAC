@@ -5,8 +5,3 @@ terraform {
     }
   }
 }
-
-provider "akamai" {
-  edgerc         = "~/.edgerc"
-  config_section = var.config_section
-}

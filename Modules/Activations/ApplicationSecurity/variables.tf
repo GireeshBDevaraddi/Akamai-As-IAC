@@ -1,15 +1,15 @@
-variable "activation_notification" {
+variable "appsec_activation_notification" {
   type = list(string)
 }
-variable "activation_network" {
+variable "appsec_activation_network" {
   type = string
 }
-variable "activation_notes" {
+variable "appsec_activation_notes" {
   type = string
 }
-variable "config_id" {
+variable "appsec_config_id" {
   type = string
 }
-variable "config_version" {
+variable "appsec_config_version" {
   type = number
 }
