@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    akamai = {
+      source = "akamai/akamai"
+    }
+  }
+}
+
 resource "akamai_cloudlets_policy_activation" "cloudlets_activations" {
   policy_id             = var.cld_config_id
   network               = var.cld_activation_network

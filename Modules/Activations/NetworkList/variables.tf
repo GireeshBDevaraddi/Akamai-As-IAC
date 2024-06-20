@@ -7,9 +7,6 @@ variable "nl_activation_network" {
 variable "nl_activation_notes" {
   type = string
 }
-variable "nl_config_id" {
+variable "nl_name" {
   type = string
-}
-variable "nl_config_version" {
-  type = number
 }

@@ -7,9 +7,6 @@ variable "cl_activation_network" {
 variable "cl_activation_notes" {
   type = string
 }
-variable "cl_config_id" {
+variable "cl_config_name" {
   type = string
-}
-variable "cl_config_version" {
-  type = number
 }

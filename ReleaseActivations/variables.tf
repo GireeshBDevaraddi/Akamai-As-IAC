@@ -2,7 +2,7 @@
 ## Variables required for the release automation
 variable "release_activations" {
   type = map(list(object({
-    config_id             = string
+    config_id             = optional(string)
     config_name           = string
     config_version        = number
     associated_properties = optional(list(string))

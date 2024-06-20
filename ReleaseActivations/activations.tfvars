@@ -8,9 +8,9 @@ release_activations = {
   "edgeworkers_list" = []
 }
 
-release_notification = []
-release_network      = "PRODUCTION"
-release_notes        = "Activation Notes"
+release_notification = [""]
+release_network      = "STAGING"
+release_notes        = ""
 
 /*
 {
@@ -28,3 +28,4 @@ variable "release_activations" {
   })))
 }
 */
+

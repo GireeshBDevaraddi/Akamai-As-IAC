@@ -7,7 +7,7 @@ variable "appsec_activation_network" {
 variable "appsec_activation_notes" {
   type = string
 }
-variable "appsec_config_id" {
+variable "appsec_config_name" {
   type = string
 }
 variable "appsec_config_version" {
